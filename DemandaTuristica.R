@@ -170,5 +170,5 @@ grubbs.test(model3$residuals, type = 10)
 
 #Pronósticos
 pasajeros <-datos$pasajeros_transportados
-pronostico = sarima.for(pasajeros, n.ahead=31,
+pronostico = sarima.for(pasajeros, n.ahead=14, #Pronósticamos dos semanas.
                         p=2,d=1,q=0,P=2,D=1,Q=0,S=7)
