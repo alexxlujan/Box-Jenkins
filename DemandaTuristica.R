@@ -7,6 +7,7 @@ library(nortest)
 library(flexmix)
 library(TSA)
 library(latex2exp)
+library(astsa)
 
 datos <- read.csv("CDMX-ACA.csv")
 datos <- datos[305:424,]
@@ -166,3 +167,8 @@ boxplot(model3$residuals, horizontal = TRUE,
         xlab="Pasajeros")
 
 grubbs.test(model3$residuals, type = 10)
+
+#Pronósticos
+pasajeros <-datos$pasajeros_transportados
+pronostico = sarima.for(pasajeros, n.ahead=31,
+                        p=2,d=1,q=0,P=2,D=1,Q=0,S=7)
